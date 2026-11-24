@@ -1,0 +1,446 @@
+{
+ "lessons": [
+  {
+   "id": "regex-to-nfa",
+   "title": "Regex to NFA",
+   "stages": [
+    {
+     "id": "regex-nfa",
+     "algorithm": "regexToNfa",
+     "demoInput": "a|b",
+     "cues": [
+      {
+       "id": "rn-fragment",
+       "trigger": {
+        "stepKind": "fragment"
+       },
+       "text": {
+        "en": {
+         "subtitle": "Thompson construction builds a small automaton for each piece of the expression, then joins the pieces."
+        },
+        "ur": {
+         "subtitle": "Thompson construction ہر حصے کے لیے ایک چھوٹا automaton بناتی ہے، پھر ان حصوں کو جوڑتی ہے۔"
+        },
+        "ur-roman": {
+         "subtitle": "Thompson construction har hisse ke liye aik chota automaton banati hai, phir in hisson ko jorti hai.",
+         "voiceText": "Thompson construction ہر حصے کے لیے ایک چھوٹا automaton بناتی ہے، پھر ان حصوں کو جوڑتی ہے۔"
+        },
+        "zh": {
+         "subtitle": "Thompson 构造法先为表达式的每个部分建立一个小的自动机，再把各部分连接起来。"
+        }
+       }
+      },
+      {
+       "id": "rn-done",
+       "trigger": {
+        "stepKind": "done"
+       },
+       "text": {
+        "en": {
+         "subtitle": "All pieces are joined. The finished NFA has one start state and one accepting state."
+        },
+        "ur": {
+         "subtitle": "تمام حصے جُڑ گئے۔ مکمل NFA میں ایک start state اور ایک accepting state ہے۔"
+        },
+        "ur-roman": {
+         "subtitle": "Tamam hisse jur gaye. Mukammal NFA mein aik start state aur aik accepting state hai.",
+         "voiceText": "تمام حصے جُڑ گئے۔ مکمل NFA میں ایک start state اور ایک accepting state ہے۔"
+        },
+        "zh": {
+         "subtitle": "所有部分已连接。完成的 NFA 只有一个起始状态和一个接受状态。"
+        }
+       }
+      },
+      {
+       "id": "rn-result",
+       "trigger": {
+        "stage": "resultReady"
+       },
+       "text": {
+        "en": {
+         "subtitle": "The expression {pattern} became an NFA with {stateCount} states and {edgeCount} transitions."
+        },
+        "ur": {
+         "subtitle": "expression {pattern} سے ایک NFA بنا جس میں {stateCount} states اور {edgeCount} transitions ہیں۔"
+        },
+        "ur-roman": {
+         "subtitle": "Expression {pattern} se aik NFA bana jis mein {stateCount} states aur {edgeCount} transitions hain.",
+         "voiceText": "expression {pattern} سے ایک NFA بنا جس میں {stateCount} states اور {edgeCount} transitions ہیں۔"
+        },
+        "zh": {
+         "subtitle": "表达式 {pattern} 生成了一个 NFA，共有 {stateCount} 个状态和 {edgeCount} 条转移。"
+        }
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "nfa-to-dfa",
+   "title": "NFA to DFA",
+   "stages": [
+    {
+     "id": "nfa-dfa",
+     "algorithm": "nfaToDfa",
+     "demoInput": "(a|b)*abb",
+     "cues": [
+      {
+       "id": "nd-closure",
+       "trigger": {
+        "stepKind": "startClosure"
+       },
+       "text": {
+        "en": {
+         "subtitle": "Subset construction starts from the epsilon-closure of the NFA start state: every state reachable without reading any input."
+        },
+        "ur": {
+         "subtitle": "Subset construction NFA کی start state کے epsilon-closure سے شروع ہوتی ہے: یعنی وہ تمام states جہاں بغیر کوئی input پڑھے پہنچا جا سکے۔"
+        },
+        "ur-roman": {
+         "subtitle": "Subset construction NFA ki start state ke epsilon-closure se shuru hoti hai: yani woh tamam states jahan baghair koi input parhe pohancha ja sake.",
+         "voiceText": "Subset construction NFA کی start state کے epsilon-closure سے شروع ہوتی ہے: یعنی وہ تمام states جہاں بغیر کوئی input پڑھے پہنچا جا سکے۔"
+        },
+        "zh": {
+         "subtitle": "子集构造法从 NFA 起始状态的 epsilon-closure 开始：即不读入任何输入就能到达的所有状态。"
+        }
+       }
+      },
+      {
+       "id": "nd-new",
+       "trigger": {
+        "stepKind": "newState"
+       },
+       "text": {
+        "en": {
+         "subtitle": "A new set of NFA states was found. It becomes one DFA state."
+        },
+        "ur": {
+         "subtitle": "NFA states کا ایک نیا set ملا۔ یہ ایک DFA state بن جاتا ہے۔"
+        },
+        "ur-roman": {
+         "subtitle": "NFA states ka aik naya set mila. Yeh aik DFA state ban jata hai.",
+         "voiceText": "NFA states کا ایک نیا set ملا۔ یہ ایک DFA state بن جاتا ہے۔"
+        },
+        "zh": {
+         "subtitle": "发现了一组新的 NFA 状态，它成为一个 DFA 状态。"
+        }
+       }
+      },
+      {
+       "id": "nd-result",
+       "trigger": {
+        "stage": "resultReady"
+       },
+       "text": {
+        "en": {
+         "subtitle": "The NFA with {nfaCount} states became a DFA with {dfaCount} states. Each DFA state is a set of NFA states."
+        },
+        "ur": {
+         "subtitle": "{nfaCount} states والا NFA، {dfaCount} states والا DFA بن گیا۔ ہر DFA state دراصل NFA states کا ایک set ہے۔"
+        },
+        "ur-roman": {
+         "subtitle": "{nfaCount} states wala NFA, {dfaCount} states wala DFA ban gaya. Har DFA state darasal NFA states ka aik set hai.",
+         "voiceText": "{nfaCount} states والا NFA، {dfaCount} states والا DFA بن گیا۔ ہر DFA state دراصل NFA states کا ایک set ہے۔"
+        },
+        "zh": {
+         "subtitle": "含 {nfaCount} 个状态的 NFA 变成了含 {dfaCount} 个状态的 DFA。每个 DFA 状态都是一组 NFA 状态。"
+        }
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "dfa-acceptance",
+   "title": "DFA string acceptance",
+   "stages": [
+    {
+     "id": "acceptance-accepted",
+     "algorithm": "acceptance",
+     "demoInput": "(a|b)*abb aabb",
+     "cues": [
+      {
+       "id": "ac-start",
+       "trigger": {
+        "stepKind": "start"
+       },
+       "text": {
+        "en": {
+         "subtitle": "The DFA starts in its start state."
+        },
+        "ur": {
+         "subtitle": "DFA اپنی start state میں شروع ہوتا ہے۔"
+        },
+        "ur-roman": {
+         "subtitle": "DFA apni start state mein shuru hota hai.",
+         "voiceText": "DFA اپنی start state میں شروع ہوتا ہے۔"
+        },
+        "zh": {
+         "subtitle": "DFA 从起始状态开始。"
+        }
+       }
+      },
+      {
+       "id": "ac-step",
+       "trigger": {
+        "stepKind": "step"
+       },
+       "text": {
+        "en": {
+         "subtitle": "It reads one symbol and follows the single transition for that symbol."
+        },
+        "ur": {
+         "subtitle": "یہ ایک symbol پڑھتا ہے اور اس symbol کی واحد transition پر چلتا ہے۔"
+        },
+        "ur-roman": {
+         "subtitle": "Yeh aik symbol parhta hai aur us symbol ki wahid transition par chalta hai.",
+         "voiceText": "یہ ایک symbol پڑھتا ہے اور اس symbol کی واحد transition پر چلتا ہے۔"
+        },
+        "zh": {
+         "subtitle": "它读取一个符号，并沿着该符号唯一的转移前进。"
+        }
+       }
+      },
+      {
+       "id": "ac-ok",
+       "trigger": {
+        "stage": "resultReady"
+       },
+       "text": {
+        "en": {
+         "subtitle": "The string {input} is accepted by the DFA."
+        },
+        "ur": {
+         "subtitle": "string {input} کو DFA نے accept کر لیا۔"
+        },
+        "ur-roman": {
+         "subtitle": "String {input} ko DFA ne accept kar liya.",
+         "voiceText": "string {input} کو DFA نے accept کر لیا۔"
+        },
+        "zh": {
+         "subtitle": "DFA 接受了字符串 {input}。"
+        }
+       }
+      }
+     ]
+    },
+    {
+     "id": "acceptance-rejected",
+     "algorithm": "acceptance",
+     "demoInput": "(a|b)*abb aba",
+     "cues": [
+      {
+       "id": "ar-start",
+       "trigger": {
+        "stepKind": "start"
+       },
+       "text": {
+        "en": {
+         "subtitle": "The DFA starts in its start state."
+        },
+        "ur": {
+         "subtitle": "DFA اپنی start state میں شروع ہوتا ہے۔"
+        },
+        "ur-roman": {
+         "subtitle": "DFA apni start state mein shuru hota hai.",
+         "voiceText": "DFA اپنی start state میں شروع ہوتا ہے۔"
+        },
+        "zh": {
+         "subtitle": "DFA 从起始状态开始。"
+        }
+       }
+      },
+      {
+       "id": "ar-step",
+       "trigger": {
+        "stepKind": "step"
+       },
+       "text": {
+        "en": {
+         "subtitle": "It reads one symbol and follows the single transition for that symbol."
+        },
+        "ur": {
+         "subtitle": "یہ ایک symbol پڑھتا ہے اور اس symbol کی واحد transition پر چلتا ہے۔"
+        },
+        "ur-roman": {
+         "subtitle": "Yeh aik symbol parhta hai aur us symbol ki wahid transition par chalta hai.",
+         "voiceText": "یہ ایک symbol پڑھتا ہے اور اس symbol کی واحد transition پر چلتا ہے۔"
+        },
+        "zh": {
+         "subtitle": "它读取一个符号，并沿着该符号唯一的转移前进。"
+        }
+       }
+      },
+      {
+       "id": "ar-no",
+       "trigger": {
+        "stage": "resultReady"
+       },
+       "text": {
+        "en": {
+         "subtitle": "The string {input} is rejected by the DFA."
+        },
+        "ur": {
+         "subtitle": "string {input} کو DFA نے reject کر دیا۔"
+        },
+        "ur-roman": {
+         "subtitle": "String {input} ko DFA ne reject kar diya.",
+         "voiceText": "string {input} کو DFA نے reject کر دیا۔"
+        },
+        "zh": {
+         "subtitle": "DFA 拒绝了字符串 {input}。"
+        }
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "lexical-analysis",
+   "title": "Lexical analysis",
+   "stages": [
+    {
+     "id": "lexer",
+     "algorithm": "lexer",
+     "demoInput": "int total = 25;",
+     "cues": [
+      {
+       "id": "lx-start",
+       "trigger": {
+        "stepIndex": 0
+       },
+       "text": {
+        "en": {
+         "subtitle": "The lexer reads the source text from left to right."
+        },
+        "ur": {
+         "subtitle": "lexer source text کو بائیں سے دائیں پڑھتا ہے۔"
+        },
+        "ur-roman": {
+         "subtitle": "Lexer source text ko baen se daen parhta hai.",
+         "voiceText": "lexer source text کو بائیں سے دائیں پڑھتا ہے۔"
+        },
+        "zh": {
+         "subtitle": "词法分析器从左到右读取源代码。"
+        }
+       }
+      },
+      {
+       "id": "lx-token",
+       "trigger": {
+        "stepKind": "token"
+       },
+       "text": {
+        "en": {
+         "subtitle": "The longest matching rule wins. Its text is the lexeme, and its category is the token type."
+        },
+        "ur": {
+         "subtitle": "سب سے لمبا match کرنے والا rule جیتتا ہے۔ اس کا متن lexeme اور اس کی قسم token type ہے۔"
+        },
+        "ur-roman": {
+         "subtitle": "Sab se lamba match karne wala rule jeetta hai. Us ka matan lexeme aur us ki qism token type hai.",
+         "voiceText": "سب سے لمبا match کرنے والا rule جیتتا ہے۔ اس کا متن lexeme اور اس کی قسم token type ہے۔"
+        },
+        "zh": {
+         "subtitle": "匹配最长的规则获胜。它的文本是 lexeme，类别是 token type。"
+        }
+       }
+      },
+      {
+       "id": "lx-result",
+       "trigger": {
+        "stage": "resultReady"
+       },
+       "text": {
+        "en": {
+         "subtitle": "The lexer found {tokenCount} tokens and {errorCount} errors."
+        },
+        "ur": {
+         "subtitle": "lexer کو {tokenCount} tokens ملے اور {errorCount} errors۔"
+        },
+        "ur-roman": {
+         "subtitle": "Lexer ko {tokenCount} tokens mile aur {errorCount} errors.",
+         "voiceText": "lexer کو {tokenCount} tokens ملے اور {errorCount} errors۔"
+        },
+        "zh": {
+         "subtitle": "词法分析器找到了 {tokenCount} 个 token 和 {errorCount} 个错误。"
+        }
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "dfa-minimization",
+   "title": "DFA minimization",
+   "stages": [
+    {
+     "id": "minimize",
+     "algorithm": "minimize",
+     "demoInput": "(a|b)*abb",
+     "cues": [
+      {
+       "id": "mn-result",
+       "trigger": {
+        "stage": "resultReady"
+       },
+       "text": {
+        "en": {
+         "subtitle": "Minimization reduced the DFA from {before} states to {after} states."
+        },
+        "ur": {
+         "subtitle": "Minimization نے DFA کو {before} states سے گھٹا کر {after} states کر دیا۔"
+        },
+        "ur-roman": {
+         "subtitle": "Minimization ne DFA ko {before} states se ghata kar {after} states kar diya.",
+         "voiceText": "Minimization نے DFA کو {before} states سے گھٹا کر {after} states کر دیا۔"
+        },
+        "zh": {
+         "subtitle": "最小化把 DFA 从 {before} 个状态减少到 {after} 个状态。"
+        }
+       }
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "parsing",
+   "title": "Parsing",
+   "stages": [
+    {
+     "id": "parser",
+     "algorithm": "parser",
+     "demoInput": "x = 10 + 20;",
+     "cues": [
+      {
+       "id": "ps-result",
+       "trigger": {
+        "stage": "resultReady"
+       },
+       "text": {
+        "en": {
+         "subtitle": "The parser built a parse tree from {tokenCount} tokens."
+        },
+        "ur": {
+         "subtitle": "parser نے {tokenCount} tokens سے parse tree بنایا۔"
+        },
+        "ur-roman": {
+         "subtitle": "Parser ne {tokenCount} tokens se parse tree banaya.",
+         "voiceText": "parser نے {tokenCount} tokens سے parse tree بنایا۔"
+        },
+        "zh": {
+         "subtitle": "语法分析器用 {tokenCount} 个 token 构建了语法树。"
+        }
+       }
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}
